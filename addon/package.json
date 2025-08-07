@@ -1,0 +1,78 @@
+{
+  "name": "ember-feature-flags",
+  "version": "8.0.0",
+  "type": "module",
+  "description": "Feature flags/toggles for Ember apps",
+  "keywords": [
+    "ember-addon",
+    "feature-flag",
+    "feature-toggle",
+    "features-switch"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kategengler/ember-feature-flags"
+  },
+  "license": "MIT",
+  "author": "Katie Gengler",
+  "exports": {
+    ".": "./dist/index.js",
+    "./*": "./dist/*",
+    "./test-support": "./dist/test-support/index.js",
+    "./addon-main.js": "./addon-main.js"
+  },
+  "files": [
+    "addon-main.js",
+    "dist"
+  ],
+  "scripts": {
+    "build": "rollup --config",
+    "prepublishOnly": "rollup --config",
+    "start": "rollup --config --watch",
+    "lint": "concurrently \"pnpm:lint:*(!fix)\" --names \"lint:\" --prefixColors auto",
+    "lint:fix": "concurrently \"pnpm:lint:*:fix\" --names \"fix:\" --prefixColors auto",
+    "lint:hbs": "ember-template-lint .",
+    "lint:hbs:fix": "ember-template-lint . --fix",
+    "lint:js": "eslint . --cache",
+    "lint:js:fix": "eslint . --fix"
+  },
+  "dependencies": {
+    "@embroider/addon-shim": "^1.10.0",
+    "tracked-built-ins": "^4.0.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.28.0",
+    "@babel/eslint-parser": "^7.26.5",
+    "@babel/plugin-proposal-decorators": "^7.28.0",
+    "@babel/plugin-transform-class-properties": "^7.27.1",
+    "@embroider/addon-dev": "^8.1.0",
+    "@eslint/js": "^9.19.0",
+    "@rollup/plugin-babel": "^6.0.4",
+    "concurrently": "^9.1.2",
+    "ember-template-lint": "^6.1.0",
+    "eslint": "^9.19.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-ember": "^12.5.0",
+    "eslint-plugin-n": "^17.15.1",
+    "eslint-plugin-prettier": "^5.2.3",
+    "eslint-plugin-qunit": "^8.1.2",
+    "globals": "^15.14.0",
+    "prettier": "^3.4.2",
+    "prettier-plugin-ember-template-tag": "^2.0.4",
+    "rollup": "^4.46.2"
+  },
+  "peerDependencies": {
+    "ember-source": ">= 4.0.0"
+  },
+  "engines": {
+    "node": ">= 18"
+  },
+  "ember": {
+    "edition": "octane"
+  },
+  "ember-addon": {
+    "main": "addon-main.js",
+    "type": "addon",
+    "version": 2
+  }
+}
